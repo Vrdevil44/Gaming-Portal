@@ -14,7 +14,7 @@ page.on('request', r => { if (!r.url().startsWith(origin) && !r.url().startsWith
 page.on('console', m => { if (m.type() === 'error') errors.push(m.text().slice(0, 120)); });
 page.on('pageerror', e => errors.push('PAGEERROR ' + String(e).slice(0, 120)));
 
-await page.goto(base, { waitUntil: 'networkidle' });
+await page.goto(base, { waitUntil: 'domcontentloaded' });
 await page.waitForTimeout(1500);
 
 // open each game panel and close it
