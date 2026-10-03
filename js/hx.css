@@ -40,3 +40,18 @@
 @media (prefers-reduced-motion: reduce) {
 	.hx-btn { transition: none; }
 }
+
+/* Self-hosted edgy fonts (OFL) — restores the original ROG look, zero off-origin */
+@font-face { font-family: 'Nova Square'; font-weight: 400; font-display: swap; src: url('../fonts/NovaSquare-400.woff2') format('woff2'); }
+@font-face { font-family: 'Share Tech'; font-weight: 400; font-display: swap; src: url('../fonts/ShareTech-400.woff2') format('woff2'); }
+@font-face { font-family: 'Montserrat'; font-weight: 400; font-display: swap; src: url('../fonts/Montserrat-400.woff2') format('woff2'); }
+
+:root {
+  --font-edgy: 'Nova Square', 'Share Tech', system-ui, sans-serif;
+  --font-tech: 'Share Tech', 'Nova Square', system-ui, sans-serif;
+}
+
+/* Edgy display type: brand, hero, section titles */
+.brand h1, .section-title, #hero h1 { font-family: var(--font-edgy); letter-spacing: 0.04em; }
+/* Tech type: nav, buttons, CTAs */
+.nav-bar a, .cta, .hx-play, .hx-btn { font-family: var(--font-tech); letter-spacing: 0.08em; }

@@ -24,13 +24,29 @@
 .hx-flip { perspective: 1000px; height: 330px; }
 .hx-flip-inner { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 0.6s ease; }
 .hx-flip[data-side="back"] .hx-flip-inner { transform: rotateY(180deg); }
-.hx-face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; display: flex; flex-direction: column; justify-content: center; gap: 12px; padding: 8px; }
+.hx-face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; display: flex; flex-direction: column; justify-content: center; gap: 12px; padding: 20px 24px; border-radius: 10px; border: 1px solid rgba(189, 11, 243, 0.45);
+	background-color: #23232f;
+	background-image: repeating-linear-gradient(0deg, rgba(255,255,255,0.018) 0 1px, transparent 1px 3px), linear-gradient(160deg, #262633 0%, #2a2b38 55%, #1c1d27 100%);
+	box-shadow: 0 0 28px rgba(189, 11, 243, 0.16), inset 0 0 46px rgba(0, 0, 0, 0.38); }
+.hx-face h4, .hx-switch-labels span, .hx-demo { font-family: 'Nova Square', 'Share Tech', system-ui, sans-serif; letter-spacing: 0.06em; }
+.hx-face .hx-input, .hx-face .hx-btn { font-family: 'Share Tech', 'Nova Square', system-ui, sans-serif; letter-spacing: 0.06em; }
+.hx-face .hx-input:focus { border-color: #bd0bf3; box-shadow: 0 0 0 2px rgba(189, 11, 243, 0.35), 0 0 14px rgba(189, 11, 243, 0.35); outline: none; }
+.hx-face .hx-btn.hx-primary { background: linear-gradient(180deg, #c813f5 0%, #9d0bc4 100%); border: 1px solid rgba(255,255,255,0.18); box-shadow: 0 4px 18px rgba(189, 11, 243, 0.45); transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.hx-face .hx-btn.hx-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(189, 11, 243, 0.6); }
+.hx-face .hx-btn.hx-primary:active { transform: translateY(0); }
 .hx-back { transform: rotateY(180deg); }
 .hx-face h4 { font-size: 2.2rem; text-transform: uppercase; }
 .hx-input { width: 100%; min-height: 44px; padding: 8px 12px; font-size: 16px; font-family: inherit; color: #fff; background: #1f262e; border: 2px solid #555; border-radius: 4px; }
 .hx-btn-wide { width: 100%; }
-.hx-input:focus-visible, .hx-modal .hx-btn:focus-visible, .hx-skip:focus-visible, .hx-flip-toggle:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
-.hx-flip-toggle { display: block; margin: 12px auto 0; min-height: 44px; min-width: 44px; padding: 8px 12px; background: none; border: 0; color: #fff; font: inherit; font-size: 1.6rem; text-decoration: underline; cursor: pointer; }
+.hx-input:focus-visible, .hx-modal .hx-btn:focus-visible, .hx-skip:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.hx-switch-labels { display: flex; justify-content: center; gap: 28px; margin: 0 0 2px; }
+.hx-switch-labels span { text-transform: uppercase; font-weight: 700; font-size: 1.5rem; letter-spacing: 0.05rem; }
+.hx-vh { position: absolute !important; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.hx-checkbox { position: absolute !important; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.hx-switch { position: relative; display: block; width: 60px; height: 16px; border-radius: 8px; margin: 6px auto; padding: 14px 34px; cursor: pointer; background-color: #ffeba7; background-clip: content-box; box-sizing: content-box; }
+.hx-switch::before { content: ''; position: absolute; display: block; width: 36px; height: 36px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #d946ff 0%, #bd0bf3 55%, #7a08a0 100%); box-shadow: 0 0 14px rgba(189, 11, 243, 0.85), 0 2px 6px rgba(0,0,0,0.5); top: 4px; left: 24px; transition: all 0.5s ease; }
+.hx-checkbox:checked + .hx-switch::before { transform: translateX(44px) rotate(-270deg); }
+.hx-checkbox:focus-visible + .hx-switch { outline: 3px solid #fff; outline-offset: 3px; }
 .hx-skip { display: inline-block; min-height: 44px; line-height: 44px; padding: 0 12px; color: #fff; font-size: 1.6rem; }
 @media (prefers-reduced-motion: reduce) {
 	.hx-flip { perspective: none; }

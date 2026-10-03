@@ -24,7 +24,7 @@ export function setupModal({ modal, openBtn }) {
 	const flip = modal.querySelector('.hx-flip');
 	const front = modal.querySelector('.hx-front');
 	const back = modal.querySelector('.hx-back');
-	const toggle = modal.querySelector('.hx-flip-toggle');
+	const toggle = modal.querySelector('.hx-checkbox');
 	let side = 'front';
 	let opener = null;
 	let inerted = [];
@@ -36,7 +36,7 @@ export function setupModal({ modal, openBtn }) {
 			face.setAttribute('aria-hidden', String(st[key].inert));
 		}
 		flip.dataset.side = side;
-		toggle.textContent = side === 'front' ? 'No account? Sign up' : 'Have an account? Log in';
+		toggle.checked = side === 'back';
 	}
 	function focusables() {
 		return [...box.querySelectorAll(FOCUSABLE)].filter((n) => !n.closest('[inert]'));
@@ -56,7 +56,7 @@ export function setupModal({ modal, openBtn }) {
 		applySide();
 		modal.hidden = false;
 		document.body.classList.add('hx-scroll-lock');
-		inerted = [...document.body.children].filter((n) => n !== modal && !n.inert && n.tagName !== 'SCRIPT');
+		inerted = [...document.body.children].filter((n) => n !== modal && !n.contains(modal) && !n.inert && n.tagName !== 'SCRIPT');
 		for (const n of inerted) n.inert = true;
 		document.addEventListener('keydown', onKey, true);
 		const first = focusables()[0];
@@ -72,7 +72,7 @@ export function setupModal({ modal, openBtn }) {
 	}
 
 	openBtn.addEventListener('click', open);
-	toggle.addEventListener('click', () => { side = side === 'front' ? 'back' : 'front'; applySide(); });
+	toggle.addEventListener('change', () => { side = toggle.checked ? 'back' : 'front'; applySide(); });
 	modal.querySelector('.hx-close').addEventListener('click', close);
 	modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
 	for (const f of modal.querySelectorAll('form')) f.addEventListener('submit', (e) => handleDemoSubmit(e, close));
