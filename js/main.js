@@ -6,3 +6,12 @@ if (playSnake) {
 	playSnake.hidden = false;
 	playSnake.addEventListener('click', () => openGamePanel(snakeDef));
 }
+
+const quizBtn = document.getElementById('hx-quiz');
+if (quizBtn) {
+	quizBtn.hidden = false;
+	quizBtn.addEventListener('click', async () => {
+		const { openQuiz } = await import('./quiz/ui.js');
+		openQuiz();
+	});
+}
