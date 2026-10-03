@@ -1,6 +1,13 @@
-@import 'https://fonts.googleapis.com/css?family=Montserrat:300, 400, 700&display=swap';
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nova+Square&family=Share+Tech&display=swap');
+/* Z-index scale: the only z-index values allowed in this project */
+:root {
+	--z-base: 0;
+	--z-content: 10;
+	--z-header: 100;
+	--z-menu: 200;
+	--z-modal: 300;
+	--z-toast: 400;
+	--font-main: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
 
 * {
 	padding: 0;
@@ -9,7 +16,7 @@
 }
 html {
 	font-size: 10px;
-	font-family: 'Nova Square', sans-serif;
+	font-family: var(--font-main);
 	scroll-behavior: smooth;
 }
 a {
@@ -30,7 +37,7 @@ img {
 }
 p {
 	color: black;
-	font-family: 'Share Tech', sans-serif;
+	font-family: var(--font-main);
 	font-size: 1.4rem;
 	margin-top: 5px;
 	line-height: 2.5rem;
@@ -56,7 +63,7 @@ p {
 	color: white;
 	background-color: transparent;
 	border: 2px solid rgb(189, 11, 243);
-	font-family: 'Nova Square';
+	font-family: var(--font-main);
 	font-size: 2rem;
 	text-transform: uppercase;
 	letter-spacing: 0.1rem;
@@ -80,7 +87,7 @@ p {
 /* Header section */
 #header {
 	position: fixed;
-	z-index: 1000;
+	z-index: var(--z-header);
 	left: 0;
 	top: 0;
 	width: 100vw;
@@ -112,7 +119,7 @@ p {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	z-index: 1;
+	z-index: var(--z-content);
 	overflow-x: hidden;
 	transition: 0.5s ease left;
 }
@@ -138,7 +145,7 @@ p {
 	color: rgba(240, 248, 255, 0.021);
 	font-size: 13rem;
 	letter-spacing: 50px;
-	z-index: -1;
+	z-index: var(--z-base);
 	transition: 0.3s ease letter-spacing;
 }
 #header .nav-list ul li:hover a::after {
@@ -158,7 +165,7 @@ p {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	z-index: 100;
+	z-index: var(--z-menu);
 	cursor: pointer;
 	transform: scale(0.8);
 	margin-right: 20px;
@@ -177,7 +184,7 @@ p {
 	width: 30px;
 	position: relative;
 	background-color: white;
-	z-index: -1;
+	z-index: var(--z-base);
 }
 #header .hamburger .bar::after,
 #header .hamburger .bar::before {
@@ -206,11 +213,11 @@ p {
 
 /* Hero Section */
 #hero {
-	background-image: url(33.jpg);
+	background-image: url(33-1920.webp);
 	background-size: cover;
 	background-position: top center;
 	position: relative;
-	z-index: 1;
+	z-index: var(--z-content);
 }
 #hero::after {
 	content: '';
@@ -221,9 +228,11 @@ p {
 	width: 100%;
 	background-color: black;
 	opacity: 0.7;
-	z-index: -1;
+	z-index: var(--z-base);
 }
 #hero .hero {
+	position: relative;
+	z-index: var(--z-content);
 	max-width: 1200px;
 	margin: 0 auto;
 	padding: 0 50px;
@@ -282,7 +291,7 @@ p {
 .modal {
 	display: none; /* Hidden by default */
 	position: fixed; /* Stay in place */
-	z-index: 1; /* Sit on top */
+	z-index: var(--z-modal);
 	padding-top: 100px; /* Location of the box */
 	left: 0;
 	top: 0;
@@ -332,12 +341,12 @@ p {
 	flex-direction: column;
 	padding: 100px;
 	border-radius: 10px;
-	background-image: url(god.jpg);
+	background-image: url(god-960.webp);
 	background-size: cover;
 	margin: 10px 5%;
 	position: relative;
 	
-	z-index: 1;
+	z-index: var(--z-content);
 	overflow: hidden;
 }
 
@@ -349,12 +358,12 @@ p {
 	flex-direction: column;
 	padding: 100px;
 	border-radius: 10px;
-	background-image: url(god.jpg);
+	background-image: url(god-960.webp);
 	background-size: cover;
 	margin: 10px 5%;
 	position: relative;
 	box-shadow: 0px 0px 18px 0 #0000002c;	
-	z-index: 1;
+	z-index: var(--z-content);
 	overflow: hidden;
 }
 #services .service-item-2 {
@@ -365,12 +374,12 @@ p {
 	flex-direction: column;
 	padding: 100px;
 	border-radius: 10px;
-	background-image: url(llll.JPEG);
+	background-image: url(llll-960.webp);
 	background-size: cover;
 	margin: 10px 5%;
 	position: relative;
 	box-shadow: 0px 0px 18px 0 #0000002c;
-	z-index: 1;
+	z-index: var(--z-content);
 	overflow: hidden;
 }
 
@@ -382,12 +391,12 @@ p {
 	flex-direction: column;
 	padding: 100px;
 	border-radius: 10px;
-	background-image: url(lll.JPEG);
+	background-image: url(lll-960.webp);
 	background-size: cover;
 	margin: 10px 5%;
 	position: relative;
 	box-shadow: 0px 0px 18px 0 #0000002c;
-	z-index: 1;
+	z-index: var(--z-content);
 	overflow: hidden;
 }
 
@@ -400,7 +409,7 @@ p {
 	width: 100%;
 	background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
 	opacity: 0.9;
-	z-index: -1;
+	z-index: var(--z-base);
 }
 #services .service-bottom .icon {
 	height: 80px;
@@ -522,12 +531,13 @@ p {
 	max-width: 1200px;
 	margin: 0 auto;
 	padding: 100px 20px;
-	background-image: url('37.jpg');
+	background-image: url('37-960.webp');
     background-size: cover;
 }
 #about .col-left {
 	width: 250px;
 	height: 360px;
+	position: relative;
 }
 #about .col-right {
 	width: 100%;
@@ -550,12 +560,13 @@ p {
 	font-size: 2rem;
 }
 #about .col-left .about-img {
+	z-index: var(--z-content);
 	height: 100%;
 	width: 100%;
 	position: relative;
 	border: 10px solid white;
 }
-#about .col-left .about-img::after {
+#about .col-left::after {
 	content: '';
 	position: absolute;
 	left: -33px;
@@ -563,7 +574,7 @@ p {
 	height: 98%;
 	width: 98%;
 	border: 7px solid crimson;
-	z-index: -1;
+	z-index: var(--z-base);
 }
 /* End About Section */
 
@@ -649,6 +660,15 @@ p {
 }
 #footer .social-item:hover img {
 	filter: grayscale(0);
+}
+#footer .social-item svg {
+	height: 100%;
+	width: 100%;
+	fill: #fff;
+	transition: 0.3s ease fill;
+}
+#footer .social-item:hover svg {
+	fill: crimson;
 }
 #footer p {
 	color: white;
@@ -825,3 +845,26 @@ p {
 	}
 }
 /* End  Media Query For Desktop */
+
+/* Content stays above z-base backdrops */
+#services .service-bottom > div > * {
+	position: relative;
+	z-index: var(--z-content);
+}
+/* Mobile hero + small-screen poster backgrounds */
+@media (max-width: 767px) {
+	#hero {
+		background-image: url(33-767.webp);
+	}
+}
+@media (max-width: 480px) {
+	#services .service-item-4 {
+		background-image: url(god-480.webp);
+	}
+	#services .service-item-2 {
+		background-image: url(llll-480.webp);
+	}
+	#services .service-item-3 {
+		background-image: url(lll-480.webp);
+	}
+}
