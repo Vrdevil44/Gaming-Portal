@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="Formstyle.css">
   <link rel="stylesheet" href="js/hx.css">
+  <link rel="stylesheet" href="js/events/events.css">
   <title>ROG-Games</title>
 </head>
 
@@ -46,66 +47,30 @@
         <h1>To your <span></span></h1>
         <h1>Hideout.<span></span></h1>
         <button id="myBtn" class="cta">Join Now</button>
-        <!-- Trigger/Open The Modal -->
-        <div id="myModal" class="modal">
-          <div class="modal-content">
-            <span class="close">&times;</span>
-            <!-- Registration Form -->
-            <div class="section">
-              <div class="container">
-                <div class="row full-height justify-content-center">
-                  <div class="col-12 text-center align-self-center py-5">
-                    <div class="section pb-5 pt-5 pt-sm-2 text-center">
-                      <h6 class="mb-0 pb-3" align="center"><span>Log In </span><span>Sign Up</span></h6>
-                            <input class="checkbox" type="checkbox" id="reg-log" name="reg-log"/>
-                            <label for="reg-log"></label>
-                      <div class="card-3d-wrap mx-auto">
-                        <div class="card-3d-wrapper">
-                          <div class="card-front">
-                            <div class="center-wrap">
-                              <div class="section text-center">
-                                <h4 class="mb-4 pb-3" align="center">Log In</h4><br>
-                                <div class="form-group">
-                                  <input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off">
-                                  <i class="input-icon uil uil-at"></i>
-                                </div><br>
-                                <div class="form-group mt-2">
-                                  <input type="password" name="logpass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off">
-                                  <i class="input-icon uil uil-lock-alt"></i>
-                                </div><br>
-                                <a href="#" class="btn mt-4">submit</a>
-                                              <p class="mb-0 mt-4 text-center"><a href="#0" class="link">Forgot your password?</a></p>
-                                  </div>
-                                </div>
-                              </div>
-                          <div class="card-back">
-                            <div class="center-wrap">
-                              <div class="section text-center">
-                                <h4 class="mb-4 pb-3" align="center">Sign Up</h4><br>
-                                <div class="form-group">
-                                  <input type="text" name="logname" class="form-style" placeholder="Your Full Name" id="logname" autocomplete="off">
-                                  <i class="input-icon uil uil-user"></i>
-                                </div><br>	
-                                <div class="form-group mt-2">
-                                  <input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off">
-                                  <i class="input-icon uil uil-at"></i>
-                                </div>	<br>
-                                <div class="form-group mt-2">
-                                  <input type="password" name="logpass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off">
-                                  <i class="input-icon uil uil-lock-alt"></i>
-                                </div><br>
-                                <a href="#" class="btn mt-4">submit</a>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                </div>
+        <!-- Join modal: demo-only flip login (js/events/modal.js) -->
+        <div id="myModal" class="hx-modal" role="dialog" aria-modal="true" aria-labelledby="hx-join-title" hidden>
+          <div class="hx-modal-box">
+            <button type="button" class="hx-btn hx-close" aria-label="Close">&times;</button>
+            <h2 id="hx-join-title" class="hx-demo">Demo only — no real account</h2>
+            <div class="hx-flip" data-side="front">
+              <div class="hx-flip-inner">
+            <form class="hx-form hx-face hx-front" novalidate>
+                <h4>Log In</h4>
+                <input class="hx-input" type="email" placeholder="Your Email" aria-label="Your Email" autocomplete="off">
+                <input class="hx-input" type="password" placeholder="Your Password" aria-label="Your Password" autocomplete="off">
+                <button type="submit" class="hx-btn hx-btn-wide hx-primary">Log in</button>
+            </form>
+            <form class="hx-form hx-face hx-back" novalidate>
+                <h4>Sign Up</h4>
+                <input class="hx-input" type="text" placeholder="Your Full Name" aria-label="Your Full Name" autocomplete="off">
+                <input class="hx-input" type="email" placeholder="Your Email" aria-label="Your Email" autocomplete="off">
+                <input class="hx-input" type="password" placeholder="Your Password" aria-label="Your Password" autocomplete="off">
+                <button type="submit" class="hx-btn hx-btn-wide hx-primary">Sign up</button>
+            </form>
+              </div>
             </div>
-          <!-- end of registration form -->
+            <button type="button" class="hx-flip-toggle">No account? Sign up</button>
+            <a href="#" class="hx-skip">Skip — just let me in</a>
           </div>
         </div>
       </div>
@@ -150,6 +115,7 @@
       <div class="projects-header">
         <h1 class="section-title">RE<span>CE</span>NT EV<span>EN</span>TS</h1>
       </div>
+      <div id="hx-events" class="hx-events"></div>
       <div class="all-projects">
         <div class="project-item">
           <div class="project-info">

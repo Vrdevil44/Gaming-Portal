@@ -1,0 +1,43 @@
+/* Events cards + Join modal flip. Scoped under .hx- ; z-index via tokens only. */
+.hx-events { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; margin-bottom: 40px; }
+.hx-event { background: #29323c; border: 2px solid rgb(189, 11, 243); border-radius: 8px; overflow: hidden; color: #fff; }
+.hx-event-img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.hx-event-body { padding: 12px; font-size: 1.6rem; }
+.hx-event-badges { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
+.hx-badge { padding: 2px 8px; border-radius: 4px; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 0.05rem; background: #444; }
+.hx-badge[data-state="Live"] { background: crimson; }
+.hx-badge[data-state="Upcoming"] { background: rgb(189, 11, 243); }
+.hx-badge-sample { background: transparent; border: 1px dashed #ddd; color: #ddd; }
+.hx-event-title { font-size: 2rem; margin-bottom: 4px; }
+.hx-event-when { color: #ddd; }
+.hx-event-count { font-weight: 700; font-variant-numeric: tabular-nums; margin-top: 6px; }
+
+.hx-scroll-lock { overflow: hidden; }
+.hx-modal {
+	position: fixed; inset: 0; z-index: var(--z-modal); display: flex; align-items: center; justify-content: center;
+	padding: 12px; background: rgba(0, 0, 0, 0.75); overscroll-behavior: contain; font-family: var(--font-main);
+}
+.hx-modal[hidden] { display: none; }
+.hx-modal-box { position: relative; width: min(92vw, 380px); max-height: 100%; overflow-y: auto; background: #29323c; border: 2px solid rgb(189, 11, 243); border-radius: 8px; padding: 16px; color: #fff; text-align: center; }
+.hx-close { position: absolute; top: 4px; right: 4px; }
+.hx-demo { color: #ffb3c0; font-size: 1.4rem; margin: 0 40px 12px; text-transform: uppercase; letter-spacing: 0.05rem; }
+.hx-flip { perspective: 1000px; height: 330px; }
+.hx-flip-inner { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 0.6s ease; }
+.hx-flip[data-side="back"] .hx-flip-inner { transform: rotateY(180deg); }
+.hx-face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; display: flex; flex-direction: column; justify-content: center; gap: 12px; padding: 8px; }
+.hx-back { transform: rotateY(180deg); }
+.hx-face h4 { font-size: 2.2rem; text-transform: uppercase; }
+.hx-input { width: 100%; min-height: 44px; padding: 8px 12px; font-size: 16px; font-family: inherit; color: #fff; background: #1f262e; border: 2px solid #555; border-radius: 4px; }
+.hx-btn-wide { width: 100%; }
+.hx-input:focus-visible, .hx-modal .hx-btn:focus-visible, .hx-skip:focus-visible, .hx-flip-toggle:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.hx-flip-toggle { display: block; margin: 12px auto 0; min-height: 44px; min-width: 44px; padding: 8px 12px; background: none; border: 0; color: #fff; font: inherit; font-size: 1.6rem; text-decoration: underline; cursor: pointer; }
+.hx-skip { display: inline-block; min-height: 44px; line-height: 44px; padding: 0 12px; color: #fff; font-size: 1.6rem; }
+@media (prefers-reduced-motion: reduce) {
+	.hx-flip { perspective: none; }
+	.hx-flip-inner { transform-style: flat; transition: none; }
+	.hx-flip[data-side="back"] .hx-flip-inner { transform: none; }
+	.hx-face { backface-visibility: visible; -webkit-backface-visibility: visible; transition: opacity 0.3s ease; }
+	.hx-back { transform: none; opacity: 0; pointer-events: none; }
+	.hx-flip[data-side="back"] .hx-back { opacity: 1; pointer-events: auto; }
+	.hx-flip[data-side="back"] .hx-front { opacity: 0; pointer-events: none; }
+}
