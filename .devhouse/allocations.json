@@ -1,1 +1,20 @@
-{"allocations":{"claude-code":["js/quiz/","test/quiz.test.mjs"],"gemini-cli":["js/games/pong/","test/pong.test.mjs"]},"project":"Hideout v2","rules":["Each builder touches ONLY its listed paths.","Shared read-only: SPEC-FREEZE.json, SCREEN-LIST.md, SCRIPT-CHECKS.md, js/core/, js/games/snake/ (pattern reference).","No builder edits another builder's files. Conflicts → Max.","Max merges."],"scene":"3 + 4a (parallel)","updated":"2026-10-03"}
+{
+  "allocations": {
+    "claude-code": [
+      "js/games/pong/",
+      "test/pong.test.mjs",
+      "js/quiz/",
+      "test/quiz.test.mjs"
+    ]
+  },
+  "project": "Hideout v2",
+  "rules": [
+    "Each builder touches ONLY its listed paths.",
+    "Shared read-only: SPEC-FREEZE.json, SCREEN-LIST.md, SCRIPT-CHECKS.md, js/core/, js/games/snake/ (pattern reference).",
+    "No builder edits another builder's files. Conflicts \u2192 Max.",
+    "Max merges."
+  ],
+  "scene": "3 (reassigned) + 4a done",
+  "updated": "2026-10-03",
+  "notes": "Gemini CLI failed scene 3 twice (sandbox read block, timeout); Pong reassigned to Claude Code per E7 fallback"
+}
