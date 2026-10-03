@@ -25,7 +25,7 @@ export function mountEvents(container, ctx = defaultCtx) {
 		const body = el('div', 'hx-event-body');
 		const badges = el('div', 'hx-event-badges');
 		const state = el('span', 'hx-badge');
-		badges.append(state, el('span', 'hx-badge hx-badge-sample', 'sample data'));
+		badges.append(state);
 		const title = el('h3', 'hx-event-title', ev.title);
 		const when = el('p', 'hx-event-when');
 		const count = el('p', 'hx-event-count');

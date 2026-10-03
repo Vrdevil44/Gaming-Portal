@@ -1,5 +1,6 @@
 /* Game panel styles. Scoped under .hx- ; z-index only via tokens in style.css */
-.hx-play { cursor: pointer; min-height: 44px; min-width: 44px; }
+.hx-play { cursor: pointer; min-height: 44px; min-width: 44px; background: #1f262e; color: #fff; }
+.hx-play:hover { background: rgb(189, 11, 243); color: #fff; }
 .hx-play:focus-visible, .hx-btn:focus-visible, .hx-stage:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
 .hx-nojs { margin-top: 12px; }
 .hx-lock { overflow: hidden; }
